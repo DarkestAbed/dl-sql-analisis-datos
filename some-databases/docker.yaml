@@ -1,0 +1,36 @@
+services:
+
+  some-postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: adminpass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  some-mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: adminpass
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  some-mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: adminpass
+    volumes:
+      - mariadb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  pgdata:
+  mysql:
+  mariadb:

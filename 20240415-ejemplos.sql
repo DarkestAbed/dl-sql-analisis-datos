@@ -111,3 +111,18 @@ ON UPDATE
 ON DELETE
     NO ACTION
 ;
+
+-- ejemplo de charla en clases
+SELECT
+	u.nombre
+	,u.edad
+	,p.nombre
+FROM
+	"Usuarios" AS u
+INNER JOIN
+	"UsuarioProyecto" AS up
+	ON u.id = up.usuario_id
+LEFT JOIN
+	"Proyectos" AS p
+	ON p.id = up.proyecto_id
+;
